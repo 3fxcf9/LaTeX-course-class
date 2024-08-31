@@ -1,4 +1,4 @@
-%% course.cls
+%% course-fr.cls
 %% Copyright 2024 RONDEAU Felix
 %
 % This work may be distributed and/or modified under the
@@ -36,6 +36,7 @@
 \usetikzlibrary{decorations.pathmorphing}
 \usepackage[b]{esvect}
 \usepackage{siunitx}
+\sisetup{locale = FR}
 \usepackage{titlesec} % Title formatting
 \usepackage{enumitem}
 \usepackage{array}
@@ -135,6 +136,8 @@
 \newcommand{\Set}[1]{\{\,#1\,\}}
 \newcommand{\cgm}[2]{\equiv #1 \left[#2\right]} % ConGruent Modulo
 \newcommand{\ncgm}[2]{\not\equiv #1 \left[#2\right]}
+\def\congru\cgm % For backward comptibility
+\def\ncongru\ncgm
 
 % Vectors
 \let\vec\vv
@@ -144,10 +147,10 @@
 % Other
 \let\leq\leqslant
 \let\geq\geqslant
-\newcommand{\induction}[3]{
+\newcommand{\recurrence}[3]{
 	\begin{list}{}{\leftmargin10pt}
-		\item \textbf{Initialization:} #1
-		\item \textbf{Induction:} #2
+		\item \textbf{Initialisation:} #1
+		\item \textbf{Hérédité:} #2
 		\item \textbf{Conclusion:} #3
 	\end{list}
 }
@@ -170,7 +173,7 @@
 {\bfseries\sffamily\large}
 {}
 {0pt}
-{\makebox[0pt][r]{Part \thesubsection\hspace{\marginparsep-2\spacelength}}}
+{\makebox[0pt][r]{Partie \thesubsection\hspace{\marginparsep-2\spacelength}}}
 
 \titleformat{\subsubsection}[block]
 {\bfseries\sffamily}
@@ -225,7 +228,7 @@
 
 
 % Theorem
-\declaretheorem[name=Theorem, style=numbered]{theorem}
+\declaretheorem[name=Proposition, style=numbered]{theorem}
 \tcolorboxenvironment{theorem}{
 	boxrule=0pt,
 	boxsep=0pt,
@@ -241,7 +244,7 @@
 }
 
 \newenvironment{theorems}
-{\begin{theorem}[Theorems]}{\end{theorem}}
+{\begin{theorem}[Propositions]}{\end{theorem}}
 
 \newenvironment{theoremlist}
 {\begin{theorems}\begin{enumerate-}}{\end{enumerate-}\end{theorems}}
@@ -250,7 +253,7 @@
 % Proof and building
 \let\proof\relax
 \declaretheorem[
-	name=Proof,
+	name=Preuve,
 	style=unnumbered,
 	qed=\qedsymbol]{proof}
 
@@ -267,10 +270,10 @@
 }
 
 \newenvironment{building}
-{\begin{proof}[Building]}{\end{proof}}
+{\begin{proof}[Construction]}{\end{proof}}
 
 \newenvironment{proofs}
-{\begin{proof}[Proofs]}{\end{proof}}
+{\begin{proof}[Preuves]}{\end{proof}}
 
 \newenvironment{prooflist}
 {\begin{proofs}\begin{enumerate-}}{\end{enumerate-}\end{proofs}}
@@ -278,10 +281,10 @@
 
 % Definition
 \theoremstyle{numbered}
-\newtheorem{definition}{Definition}
+\newtheorem{definition}{Définition}
 
 \newenvironment{definitions}
-{\begin{definition}[Definitions]}{\end{definition}}
+{\begin{definition}[Définitions]}{\end{definition}}
 
 \newenvironment{deflist}
 {\begin{definitions}\begin{itemize}[nosep, itemsep=4pt, leftmargin=*]}{\end{itemize}\end{definitions}}
@@ -302,10 +305,10 @@
 
 % Properties
 \theoremstyle{numbered}
-\newtheorem{property}{Property}
+\newtheorem{property}{Propriété}
 
 \newenvironment{properties}
-{\begin{property}[Properties]}{\end{property}}
+{\begin{property}[Propriétés]}{\end{property}}
 
 \newenvironment{proplist}
 {\begin{property}\begin{itemize}[nosep, itemsep=4pt, leftmargin=*]}{\end{itemize}\end{property}}
@@ -326,7 +329,7 @@
 
 % Lemma
 \theoremstyle{numbered}
-\newtheorem{lemma}{Lemma}
+\newtheorem{lemma}{Lemme}
 \tcolorboxenvironment{lemma}{
 	boxrule=0pt,
 	boxsep=0pt,
@@ -342,7 +345,7 @@
 
 % Corollary
 \theoremstyle{numbered}
-\newtheorem{corollary}{Corollary}
+\newtheorem{corollary}{Corollaire}
 \tcolorboxenvironment{corollary}{
 	boxrule=0pt,
 	boxsep=0pt,
@@ -358,10 +361,10 @@
 
 % Remarks
 \theoremstyle{unnumbered}
-\newtheorem{remark}{Remark}
+\newtheorem{remark}{Remarque}
 
 \newenvironment{remarks}
-{\begin{remark}[Remarks]}{\end{remark}}
+{\begin{remark}[Remarques]}{\end{remark}}
 
 \newenvironment{remarklist}
 {\begin{remarks}\begin{itemize}[nosep, itemsep=4pt, leftmargin=*]}{\end{itemize}\end{remarks}}
@@ -381,10 +384,10 @@
 
 % Example
 \theoremstyle{numbered}
-\newtheorem{example}{Example}
+\newtheorem{example}{Exemple}
 
 \newenvironment{examples}
-{\begin{example}[Examples]}{\end{example}}
+{\begin{example}[Exemples]}{\end{example}}
 
 \newenvironment{exlist}
 {\begin{examples}\begin{itemize}[nosep, itemsep=4pt, leftmargin=*]}{\end{itemize}\end{examples}}
