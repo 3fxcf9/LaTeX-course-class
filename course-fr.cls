@@ -84,8 +84,8 @@
 
 % For \Re and \Im
 \usepackage[scr=boondox,  % heavily sloped
-            cal=esstix]   % slightly sloped
-           {mathalpha}
+	cal=esstix]   % slightly sloped
+{mathalpha}
 
 % Set Linux Libertine as the default roman font
 \renewcommand{\rmdefault}{LinuxLibertineT-LF}
@@ -140,14 +140,14 @@
 \def\ncongru\ncgm
 
 % Vectors
-\let\vec\vv
+\renewcommand{\vec}{\vv}
 % TODO: Change font
 \newcommand\norm[1]{\left\lVert#1\right\rVert}
 
 % Other
 \let\leq\leqslant
 \let\geq\geqslant
-\newcommand{\recurrence}[3]{
+\newcommand{\induction}[3]{
 	\begin{list}{}{\leftmargin10pt}
 		\item \textbf{Initialisation:} #1
 		\item \textbf{Hérédité:} #2

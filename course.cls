@@ -83,8 +83,8 @@
 
 % For \Re and \Im
 \usepackage[scr=boondox,  % heavily sloped
-            cal=esstix]   % slightly sloped
-           {mathalpha}
+	cal=esstix]   % slightly sloped
+{mathalpha}
 
 % Set Linux Libertine as the default roman font
 \renewcommand{\rmdefault}{LinuxLibertineT-LF}
@@ -137,7 +137,7 @@
 \newcommand{\ncgm}[2]{\not\equiv #1 \left[#2\right]}
 
 % Vectors
-\let\vec\vv
+\renewcommand{\vec}{\vv}
 % TODO: Change font
 \newcommand\norm[1]{\left\lVert#1\right\rVert}
 

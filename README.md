@@ -78,9 +78,9 @@ $\conj{z}=\conj{a-ib}=a+ib=z$
 \end{proof}
 ```
 
-## Real-world examples
-
-Check out the `examples` directory for sample LaTeX documents showcasing the features of MathCourseTeX.
+<!-- ## Real-world examples -->
+<!---->
+<!-- Check out the `examples` directory for sample LaTeX documents. -->
 
 ## Contributing
 
