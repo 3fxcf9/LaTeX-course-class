@@ -55,6 +55,23 @@ To use the class in your LaTeX document, simply include the following line in yo
 \documentclass{course} % You can replace `course` by `course-fr` for the french version
 ```
 
+## Preamble
+
+You can set these variables in your preamble for the page header and the title to be displayed (do not forget to call `\maketitle` in your document).
+
+```tex
+\title{This class is amazing}
+\subtitle{I will give it a star on github}
+\author{John Doe}
+
+% ...
+
+\begin{document}
+\maketitle
+% ...
+\end{document}
+```
+
 ## Theorem Environments
 
 The class provides the following theorem-like environments:
