@@ -36,10 +36,11 @@
 \usetikzlibrary{decorations.pathmorphing}
 \usepackage[b]{esvect}
 \usepackage{siunitx}
-\sisetup{locale = FR}
 \usepackage{titlesec} % Title formatting
 \usepackage{enumitem}
 \usepackage{array}
+\usepackage{stmaryrd}
+
 
 %----------------------------------------------------------------------------------------
 %	PAGE LAYOUT
@@ -84,7 +85,7 @@
 
 % For \Re and \Im
 \usepackage[scr=boondox,  % heavily sloped
-	cal=esstix]   % slightly sloped
+	cal=cm]   % slightly sloped
 {mathalpha}
 
 % Set Linux Libertine as the default roman font
@@ -95,7 +96,7 @@
 
 
 %----------------------------------------------------------------------------------------
-%   CAPTION
+% CAPTION
 %----------------------------------------------------------------------------------------
 
 \renewcommand\maketitle{
@@ -114,50 +115,74 @@
 }
 
 %----------------------------------------------------------------------------------------
-%   USEFUL MATHS COMMANDS
+% USEFUL MATHS COMMANDS
 %----------------------------------------------------------------------------------------
 
 % Common sets
-\newcommand{\N}{\mathbb{N}}
-\newcommand{\Z}{\mathbb{Z}}
-\newcommand{\R}{\mathbb{R}}
-\newcommand{\C}{\mathbb{C}}
-\newcommand{\U}{\mathbb{U}}
-\renewcommand{\P}{\mathbb{P}}
-\newcommand{\K}{\mathbb{K}}
+\newcommand{\N}{\ensuremath{\mathbb{N}}}
+\newcommand{\Z}{\ensuremath{\mathbb{Z}}}
+\newcommand{\Q}{\ensuremath{\mathbb{Q}}}
+\newcommand{\R}{\ensuremath{\mathbb{R}}}
+\newcommand{\C}{\ensuremath{\mathbb{C}}}
+\newcommand{\U}{\ensuremath{\mathbb{U}}}
+\newcommand{\K}{\ensuremath{\mathbb{K}}}
+\renewcommand{\P}{\ensuremath{\mathcal{P}}}
+\newcommand{\M}{\ensuremath{\mathcal{M}}}
+\newcommand{\GL}{\ensuremath{\mathrm{GL}}}
 
 % Complex numbers
 \let\conj\overline
-\newcommand{\Arg}[1]{\arg\left(#1\right)}
 \renewcommand{\Re}{\mathscr{R\!e}}
 \renewcommand{\Im}{\mathscr{I\!\!m}}
 
+% Functions set and regularity classes
+\newcommand{\Func}{\mathcal{F}}
+\newcommand{\Cont}{\mathcal{C}}
+\newcommand{\Diff}{\mathcal{D}}
+
+% Trigonometry
+\DeclareMathOperator{\acos}{Arccos}
+\DeclareMathOperator{\asin}{Arcsin}
+\DeclareMathOperator{\atan}{Arctan}
+\DeclareMathOperator{\ch}{ch}
+\DeclareMathOperator{\sh}{sh}
+\let\th\undefined
+\DeclareMathOperator{\th}{th}
+
 % Arithmetic
-\newcommand{\Set}[1]{\{\,#1\,\}}
+\renewcommand{\div}{\mid}
+\newcommand{\ndiv}{\nmid}
 \newcommand{\cgm}[2]{\equiv #1 \left[#2\right]} % ConGruent Modulo
 \newcommand{\ncgm}[2]{\not\equiv #1 \left[#2\right]}
-\def\congru\cgm % For backward comptibility
-\def\ncongru\ncgm
+\newcommand{\iset}[1]{\left\llbracket #1 \right\rrbracket}
+
+% Sets
+\newcommand{\set}[1]{\{\,#1\,\}}
+\newcommand{\where}{\mid}
 
 % Vectors
 \renewcommand{\vec}{\vv}
 % TODO: Change font
 \newcommand\norm[1]{\left\lVert#1\right\rVert}
 
+% Limits
+\newcommand{\arrowlim}[1]{\xrightarrow[#1]{}}
+
+% Differentials
+\newcommand{\dd}{\mathrm d}
+%
+% Probabilities
+\newcommand{\prob}{\mathbb P}
+\newcommand{\expect}{\mathbb E}
+\newcommand{\variance}{\mathbb V}
+
 % Other
 \let\leq\leqslant
 \let\geq\geqslant
-\newcommand{\induction}[3]{
-	\begin{list}{}{\leftmargin10pt}
-		\item \textbf{Initialisation:} #1
-		\item \textbf{Hérédité:} #2
-		\item \textbf{Conclusion:} #3
-	\end{list}
-}
-
+\newcommand{\prop}{\mathcal P}
 
 %----------------------------------------------------------------------------------------
-%   SECTION / SUBSECTION STYLE
+% SECTION / SUBSECTION STYLE
 %----------------------------------------------------------------------------------------
 
 \newlength{\spacelength}
@@ -173,7 +198,7 @@
 {\bfseries\sffamily\large}
 {}
 {0pt}
-{\makebox[0pt][r]{Partie \thesubsection\hspace{\marginparsep-2\spacelength}}}
+{\makebox[0pt][r]{Part \thesubsection\hspace{\marginparsep-2\spacelength}}}
 
 \titleformat{\subsubsection}[block]
 {\bfseries\sffamily}
@@ -183,7 +208,7 @@
 
 
 %----------------------------------------------------------------------------------------
-%   LISTS STYLE
+% LISTS STYLE
 %----------------------------------------------------------------------------------------
 
 % Enumerate without top margin
@@ -196,7 +221,7 @@
 
 
 %----------------------------------------------------------------------------------------
-%   THEOREM STYLE
+% THEOREM STYLE
 %----------------------------------------------------------------------------------------
 
 \declaretheoremstyle[
@@ -225,6 +250,9 @@
 	headformat={%
 			\makebox[0pt][r]{\ifthenelse{\equal{\NOTE}{}}{\NAME}{\NOTE}\hspace{\marginparsep}}\hspace{-\spacelength}},
 ]{claim}
+
+\theoremstyle{unnumbered}
+\newtheorem{blank}{}
 
 
 % Theorem

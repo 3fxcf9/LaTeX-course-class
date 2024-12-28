@@ -1,3 +1,187 @@
+\documentclass{course}
+\usepackage[utf8]{inputenc}
+\usepackage{marginnote}
+
+% Code listings
+\usepackage{listings}
+\usepackage{sourcecodepro}
+\lstset{language=tex}
+\lstset{
+    basicstyle=\ttfamily\footnotesize\fontfamily{SourceCodePro-TLF}\selectfont,
+    breaklines=true,
+    keepspaces=true
+}
+
+\theoremstyle{unnumbered}
+\newtheorem{code}{Code}
+\tcolorboxenvironment{code}{
+	boxrule=0pt,
+	boxsep=0pt,
+	blanker,
+	borderline west={1pt}{0pt}{black},
+	sharp corners,
+	before skip=8pt,
+	after skip=8pt,
+	left=5pt,
+	right=5pt,
+	breakable,
+}
+
+
+\title{Course class documentation}
+\subtitle{A \LaTeX\hspace{0.1em} class for writing courses}
+\author{Felix RONDEAU}
+
+
+\begin{document}
+\maketitle
+\begin{lstlisting}
+\title{course.cls}
+\subtitle{A \LaTeX class for writing courses}
+\author{Felix RONDEAU}
+\maketitle
+\end{lstlisting}
+
+\section{Description}
+\subsection{Class features}
+\subsubsection{Provided environments}
+\begin{lstlisting}
+\section{Description}
+\subsection{Class features}
+\subsubsection{Provided environments}
+\end{lstlisting}
+
+\begin{definition}
+	\begin{lstlisting}
+\begin{definition}
+	...
+\end{definition}
+\end{lstlisting}
+\end{definition}
+
+\begin{theorem}
+	\begin{lstlisting}
+\begin{theorem}
+	...
+\end{theorem}
+\end{lstlisting}
+\end{theorem}
+
+\begin{proof}
+	\begin{lstlisting}
+\begin{proof}
+	...
+\end{proof}
+\end{lstlisting}
+	Ended by a QED $\rightarrow$
+\end{proof}
+
+\begin{lemma}
+	\begin{lstlisting}
+\begin{lemma}
+	...
+\end{lemma}
+\end{lstlisting}
+\end{lemma}
+
+\begin{corollary}
+	\begin{lstlisting}
+\begin{corollary}
+	...
+\end{corollary}
+\end{lstlisting}
+\end{corollary}
+
+\begin{example}
+	\begin{lstlisting}
+\begin{example}
+	...
+\end{example}
+\end{lstlisting}
+\end{example}
+
+\begin{remark}
+	\begin{lstlisting}
+\begin{remark}
+	...
+\end{remark}
+\end{lstlisting}
+\end{remark}
+
+
+\subsubsection{Aliases}
+The class provides aliases for commonly used mathematical objects. Here are some examples.\\
+Mathematical sets
+\[
+	\P \subset \N \subset \Z \subset \Q \subset \R \subset \C
+\]
+\begin{code}
+	\begin{lstlisting}
+\P \subset \N \subset \Z \subset \Q \subset \R \subset \C
+\end{lstlisting}
+\end{code}
+
+\vspace{1em}\noindent Complex numbers and vectors
+\[
+	\Re\Bigl(\conj{(b-a)} \times (d-c)\Bigr) = \vec{AB} \cdot \vec{CD} = \norm{\vec{AB}} \times \norm{\vec{CD}} \times \cos\Bigl(\widehat{\vec{AB},\vec{CD}}\Bigr)
+\]
+
+\begin{code}
+	\begin{lstlisting}
+\Re\Bigl(\conj{(b-a)} \times (d-c)\Bigr) = \vec{AB} \cdot \vec{CD} = \norm{\vec{AB}}
+\times \norm{\vec{CD}} \times \cos\Bigl(\widehat{\vec{AB},\vec{CD}}\Bigr)
+\end{lstlisting}
+\end{code}
+
+\noindent Matrices
+\[
+	\forall M \in \M_{n}, M\in\GL_{n}(\K) \iff \det\M \neq 0
+\]
+\begin{code}
+	\begin{lstlisting}
+\forall M \in \M_{n}, M\in\GL_{n}(\K) \iff \det\M \neq 0
+\end{lstlisting}
+\end{code}
+
+\vspace{1em}\noindent Trigonometry, with definition of $\acos$ (\lstinline|\acos|), $\asin$ (\lstinline|\asin|) and $\atan$ (\lstinline|\atan|), as well as hyperbolic functions like $\ch$ (\lstinline|\ch|), $\sh$ (\lstinline|\sh|) and $\th$ (\lstinline|\th|),
+
+\vspace{1em}\noindent Arithmetics (\lstinline|\div| and \lstinline|\ncgm| are also available),
+\[
+	\forall p\in\P,\; \forall a\in\iset{1,p},\; p \ndiv a \implies a^{p-1} \cgm{1}{p}
+\]
+\begin{code}
+	\begin{lstlisting}
+\forall p\in\P, \forall a\in\iset{1,p}, p \ndiv a \implies a^{p-1} \cgm{1}{p}
+\end{lstlisting}
+\end{code}
+
+\vspace{1em}\noindent Limits and regularity classes,
+\[
+	\exists f \in \Func(\R) \cap \Cont(\R) \cap \Diff(\R) : f(x) \arrowlim{x\to 0} 0
+\]
+\begin{code}
+	\begin{lstlisting}
+\exists f \in \Func(\R) \cap \Cont(\R) \cap \Diff(\R) : f(x) \arrowlim{x\to 0} 0
+\end{lstlisting}
+\end{code}
+
+\vspace{1em}\noindent Probabilities, with $\prob$ (\lstinline|\prob|), $\expect$ (\lstinline|\expect|) and $\variance$ (\lstinline|\variance|), comprehension sets :
+
+\[
+	[\,a,b\,[ \;= \set{x\in\R \where a \leq x < b}
+\]
+\begin{code}
+	\begin{lstlisting}
+[a,b[ = \set{x\in\R \where a \leq x < b}
+\end{lstlisting}
+\end{code}
+
+\noindent ...and many more to come !
+
+\pagebreak
+\section{implementation}
+\begin{code}
+	\begin{lstlisting}[language=]
 %% course.cls
 %% Copyright 2024 RONDEAU Felix
 %
@@ -115,7 +299,7 @@
 }
 
 %----------------------------------------------------------------------------------------
-% USEFUL MATHS COMMANDS
+% USEFUL MATHS COMMANDS
 %----------------------------------------------------------------------------------------
 
 % Common sets
@@ -432,4 +616,7 @@
 	right=5pt,
 	breakable,
 }
+\end{lstlisting}
+\end{code}
 
+\end{document}
