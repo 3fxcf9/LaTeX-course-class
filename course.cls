@@ -181,6 +181,27 @@
 \let\geq\geqslant
 \newcommand{\prop}{\mathcal P}
 
+% Vector norm (taken from https://ctan.org/pkg/mismath)
+\makeatletter
+\newcommand*{\@norm}[1]{%
+    \mbox{\raisebox{1.75pt}{\small$\bigl\Vert$}} #1%
+    \mbox{\raisebox{1.75pt}{\small$\bigr\Vert$}}%
+}
+\newcommand*{\@@norm}[1]{%
+    \mbox{\footnotesize\raisebox{1pt}{$\Vert$}} #1%
+    \mbox{\footnotesize\raisebox{1pt}{$\Vert$}}%
+}
+\newcommand*{\@@@norm}[1]{%
+    \mbox{\tiny\raisebox{1pt}{$\Vert$}} #1%
+    \mbox{\tiny\raisebox{1pt}{$\Vert$}}%
+}
+\@ifundefined{norm}{%
+    \providecommand*{\norm}[1]{%
+        \mathchoice{\@norm{#1}}{\@norm{#1}}{\@@norm{#1}}{\@@@norm{#1}}%
+    }%
+}{\mm@warning{norm}}
+\makeatother
+
 %----------------------------------------------------------------------------------------
 % SECTION / SUBSECTION STYLE
 %----------------------------------------------------------------------------------------
